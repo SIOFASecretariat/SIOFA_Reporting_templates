@@ -1,9 +1,20 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Edit these for the relevant meeting, date, and location. 
 \newcommand\ReportMeeting{\#th Meeting of the Scientific Commitee (SC\#)}
 \newcommand\ReportLocation{[Meeting location], [Meeting dates]}
 \newcommand\ReportTitle{Document Title}
 \newcommand\ReportShortTitle{Short title for the header on each page}
 \newcommand\ReportAuthor{Author Name}
-\newcommand\ReportNumber{SC-\#\#-XX} % Contact the SIOFA Secretariat to obtain the document number
+\newcommand\ReportNumber{SC-\#\#-XX (Document \# to be assigned by the Secretariat)}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Is the document a restricted document?
+\newif\ifIsRestricted 
+% Comment out the line below to set the switch to "false" (i.e., as a public document)
+\IsRestrictedtrue
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Is the document a Working Paper?
+\newif\ifWorkingPaper 
+% Comment out the line below to set the switch to "false" (i.e. define as an information paper)
+\WorkingPapertrue

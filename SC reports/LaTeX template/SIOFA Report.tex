@@ -1,8 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % LaTeX template for SIOFA Scientific Reports
 % Version: March 2023
-% This file should not require any editing, 
-%   except for the check boxes for Document Type and Distribution (see lines 151-156)
+% This file should not require any editing
 % Useage: 
 %   1. ReportProperties.tex to enter the meeting, report title, author, report numbers, etc.
 %   2. ReportAbstract.tex to enter the abstract
@@ -37,8 +36,9 @@
 	linkcolor=black, % colour of internal links
 	citecolor=black, % colour of links to bibliography
 	filecolor=black, % colour of file links
-	urlcolor=red,    % colour of external links
+	urlcolor=blue,    % colour of external links
 }
+\urlstyle{sf}
 \pdfadjustspacing=1
 
 %% Math, equations, etc.
@@ -48,10 +48,12 @@
 \newcommand\CheckBoxTick{$\text{\rlap{$\checkmark$}}\square$}
 \newcommand\CheckBoxUntick{$\square$}
 
-%% Allow colour for HTML links
+%% Allow colour for HTML links and other colours
 \usepackage{xcolor}
 \definecolor{darkgray}{gray}{0.20}
 \definecolor{blue}{HTML}{2F5496} % Define blue colour for headings etc.
+\definecolor{fade}{HTML}{AEAAAA}
+\definecolor{watermark}{HTML}{EAEAEA}
 
 %% Geometry for A4 layout like MS-Word defaults
 \usepackage[left=2.54cm,top=2.54cm,bottom=3.17cm,right=3.17cm,headheight=1cm]{geometry}
@@ -124,6 +126,13 @@
 \DisableLigatures[f]{encoding=T1} % this removes the fi issue when copying from pdf 
 \usepackage[T1]{fontenc} % this removes the fi issue when copying from pdf 
 
+\ifIsRestricted
+  \usepackage[firstpageonly=false, stamp=true]{draftwatermark}
+  \SetWatermarkText{RESTRICTED}
+  \SetWatermarkScale{0.6}
+  \SetWatermarkColor{watermark}
+\fi
+
 %% Begin the document
 \begin{document}
   \hbadness=10000 % to deal with underfull hbox warnings
@@ -154,14 +163,25 @@
     \centering
     \begin{tabular}{|p{0.25\linewidth}|p{0.75\linewidth}|}
       \hline
-       % Use \CheckBoxTick OR \CheckBoxUntick to indicate Working paper or Information paper
+      % Use \CheckBoxTick OR \CheckBoxUntick to indicate Working paper or Information paper
+      \ifWorkingPaper 
       \textbf{\color{blue}{Document type}} & Working paper                            \CheckBoxTick   \\
                                            & Information paper                        \CheckBoxUntick \\
+      \else
+      \textbf{\color{blue}{Document type}} & Working paper                            \CheckBoxUntick \\
+                                           & Information paper                        \CheckBoxTick   \\
+      \fi
       \hline
        % Use \CheckBoxTick OR \CheckBoxUntick to indicate Public, Restricted, or Closed session
+      \ifIsRestricted
+      \textbf{\color{blue}{Distribution}}  & Public                                   \CheckBoxUntick   \\
+                                           & Restricted \footnotemark[1]              \CheckBoxTick \\
+                                           & Closed session document \footnotemark[2] \CheckBoxUntick \\
+      \else
       \textbf{\color{blue}{Distribution}}  & Public                                   \CheckBoxTick   \\
                                            & Restricted \footnotemark[1]              \CheckBoxUntick \\
                                            & Closed session document \footnotemark[2] \CheckBoxUntick \\
+      \fi                                     
       \hline
       \multicolumn{2}{|l|}{\textbf{\color{blue}{Abstract}}} \\
       \hline
@@ -174,14 +194,16 @@
   % footnotes
   \footnotetext[1]{Restricted documents may contain confidential information. Please do not distribute restricted documents in any form without the explicit permission of the SIOFA Secretariat and the data owner(s)/provider(s).}
   \footnotetext[2]{Documents available only to members invited to closed sessions.}
-
+  
+  \lfoot{Southern Indian Ocean fisheries Agreement – SIOFA}
+  \rfoot{\url{www.siofa.org}}
+  
   \newpage
   \pagestyle{fancyplain}
   \fancyhf{}
-  \lhead{\fancyplain{\ReportNumber}{\ReportNumber}}
-  \rhead{\fancyplain{\ReportShortTitle}{\ReportShortTitle}}
+  \lhead{\fancyplain{\ReportNumber}{\textcolor{fade}\ReportNumber\ - \textcolor{fade}\ReportShortTitle}}
   %\lfoot{Southern Indian Ocean fisheries Agreement – SIOFA}
-  %\rfoot{www.siofa.org}
+  %\rfoot{\url{www.siofa.org}}
   \cfoot{\thepage}
   \pagenumbering{arabic} % Page numbers a arabic numerals
   \setcounter{page}{2} % Assume starts at page 2
