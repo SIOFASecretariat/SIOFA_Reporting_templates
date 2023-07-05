@@ -1,18 +1,18 @@
 {
     "InternalPDFViewer": {
         "Embedded": true,
-        "File": "LaTeX/SIOFA Report.pdf"
+        "File": "LaTeX Template/SIOFA Report.pdf"
     },
     "Session": {
         "Bookmarks": [
         ],
-        "CurrentFile": "LaTeX/SIOFA Report.tex",
+        "CurrentFile": "LaTeX Template/SIOFA Report.tex",
         "FileVersion": 1,
         "Files": [
             {
                 "Col": 0,
                 "EditorGroup": 0,
-                "FileName": "LaTeX/SIOFA Report.tex",
+                "FileName": "LaTeX Template/SIOFA Report.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
                 "Line": 0
@@ -20,7 +20,7 @@
             {
                 "Col": 28,
                 "EditorGroup": 0,
-                "FileName": "LaTeX/ReportBody.tex",
+                "FileName": "LaTeX Template/ReportBody.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
                 "Line": 0
@@ -28,7 +28,7 @@
             {
                 "Col": 14,
                 "EditorGroup": 0,
-                "FileName": "LaTeX/ReportProperties.tex",
+                "FileName": "LaTeX Template/ReportProperties.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
                 "Line": 0
@@ -36,7 +36,7 @@
             {
                 "Col": 35,
                 "EditorGroup": 0,
-                "FileName": "LaTeX/ReportAbstract.tex",
+                "FileName": "LaTeX Template/ReportAbstract.tex",
                 "FirstLine": 0,
                 "FoldedLines": "",
                 "Line": 1
